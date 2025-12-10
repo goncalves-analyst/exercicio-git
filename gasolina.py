@@ -2,12 +2,16 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('gasolina.csv')
+# Ler os dados
+data = pd.read_csv('gasolina.csv')
 
+# Criar o gráfico
 plt.figure(figsize=(10, 6))
-grafico = sns.lineplot(data=df, x='dia', y='venda', marker='o')
-grafico.set_title('Preço Médio da Gasolina em SP (Julho 2021)', fontsize=16)
-grafico.set_xlabel('Dia', fontsize=12)
-grafico.set_ylabel('Preço (R$)', fontsize=12)
+sns.lineplot(data=data, x='dia', y='venda')
+plt.title('Preço da Gasolina em SP (Julho 2021)')
+plt.xlabel('Dia')
+plt.ylabel('Preço (R$)')
 
+# Salvar a imagem
 plt.savefig('gasolina.png')
+print("Gráfico salvo com sucesso!")
